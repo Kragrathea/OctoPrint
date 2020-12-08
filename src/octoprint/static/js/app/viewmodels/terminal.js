@@ -195,6 +195,9 @@ $(function () {
         };
 
         self.fromCurrentData = function (data) {
+            if(!self.tabActive){
+                return;//Do nothing while tab is inactive
+            }
             self._processStateData(data.state);
 
             var start = new Date().getTime();
@@ -223,6 +226,9 @@ $(function () {
         };
 
         self.fromHistoryData = function (data) {
+            if(!self.tabActive){
+                return;//Do nothing while tab is inactive
+            }
             self._processStateData(data.state);
             self._processHistoryLogData(data.logs);
         };
